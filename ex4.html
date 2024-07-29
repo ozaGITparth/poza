@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+   
+    .card{
+    margin: 100px auto;  
+    padding: 2em;
+    width: 300px;
+    max-width: 50%;
+    color: white;
+    background:black ;
+    /* background-color: black; */
+    text-align: center;
+    border-radius: 10px;
+    position: relative;
+   }
+ 
+   @property --angle{
+            syntax: "<angle>";
+            initial-value: 0deg;
+            inherits: false;
+   }
+   .card::after, .card::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle), transparent 50%,blue);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 3px;
+    border-radius: 10px;
+    animation: 3s spin linear infinite;
+   }
+  
+   .card::before{
+    filter: blur(2rem);
+    /* opacity: 0.5; */
+   }
+   @keyframes spin{
+    from{
+        --angle: 0deg;
+    }
+    to{
+        --angle: 360deg;
+    }
+   }
+   .back{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+   }
+   @media (min-aspect-ratio: 16/9){
+    .back{
+        width: 100%;
+        height: auto;
+    }
+   }
+   @media (max-aspect-ratio: 16/9){
+    .back{
+        width: auto;
+        height: 100%;
+    }
+   }
+   .parth{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: 9px;
+    font-weight: lighter;
+   }
+</style>
+<body>
+    <video autoplay loop muted play-inline class="back">
+        <source src="D:\vid\Galaxy Motion Background Video [HD] _ FREE(720P_HD).mp4" type="video/mp4">
+        </video>
+    <div class="wrp">
+        <div class="card" id="c1">
+            <h1 class="parth">parth oza</h1>
+            <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda omnis maxime, ratione eveniet iure fuga inventore, fugit itaque nam, tempore magnam id necessitatibus libero aperiam et minima. Eveniet, nesciunt aliquam!</P>
+            </div>
+            
+            
+    </div>
+     
+</body>
+</html>
